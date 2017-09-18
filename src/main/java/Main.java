@@ -8,6 +8,10 @@ public class Main {
         readerTXT.setPATH("d:\\test.txt");
         text = readerTXT.readFromFile();
         System.out.println(text);
+        AnalizerTXT analizerTXT = new AnalizerTXT();
+        text = analizerTXT.cleanText(text);
+
+
 
     }
 }
