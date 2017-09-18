@@ -25,4 +25,22 @@ public class AnalizerTXT {
         return text;
     }
 
+
+    public void analyzeTXT(String text) {
+        String[] wordsFromText = text.split(" ");
+        Map<String, Integer> topTable = new HashMap<String, Integer>();
+        for (String i : wordsFromText) {
+            if (topTable.containsKey(i)) {
+                topTable.put(i, (topTable.get(i) + 1));
+            } else {
+                topTable.put(i, 1);
+            }
+        }
+        for (Map.Entry entry : topTable.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + " Value: "
+                    + entry.getValue());
+        }
+    }
+
+
 }

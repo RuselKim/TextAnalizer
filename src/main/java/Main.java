@@ -11,7 +11,8 @@ public class Main {
         AnalizerTXT analizerTXT = new AnalizerTXT();
         text = analizerTXT.cleanText(text);
 
-
+        System.out.println(text);
+        analizerTXT.analyzeTXT(text);
 
     }
 }
