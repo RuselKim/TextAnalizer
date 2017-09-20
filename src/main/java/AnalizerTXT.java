@@ -1,6 +1,7 @@
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * Created by Sus on 18.09.2017.
@@ -13,7 +14,8 @@ public class AnalizerTXT {
         readerTXT.setPATH("d:\\Exeptions.txt");
 
         String[] badWords = readerTXT.readFromFile().trim().split("\r\n");
-        String[] simbols = {".", ",", "!", "?", ";", ":", "'", "&", "*", "-", "_", "+", "=", "\\", "|", "/"};
+        String[] simbols = {". ", ".\r\n", "\r\n", ", ", "! ", "? ", ";", ":", "'",
+                "&", "*", "-", "_", "+", "=", "\\", "|", "/", "\n", "\r"};
 
         for (int i = 0; i < simbols.length; i++) {
             text = text.replace(simbols[i], " ");
@@ -28,7 +30,7 @@ public class AnalizerTXT {
 
     public void analyzeTXT(String text) {
         String[] wordsFromText = text.split(" ");
-        Map<String, Integer> topTable = new HashMap<String, Integer>();
+        Map<String, Integer> topTable = new TreeMap<String, Integer>();
         for (String i : wordsFromText) {
             if (topTable.containsKey(i)) {
                 topTable.put(i, (topTable.get(i) + 1));
@@ -36,9 +38,28 @@ public class AnalizerTXT {
                 topTable.put(i, 1);
             }
         }
-        for (Map.Entry entry : topTable.entrySet()) {
-            System.out.println("Key: " + entry.getKey() + " Value: "
-                    + entry.getValue());
+        printTop10(topTable);
+    }
+
+
+    public void printTop10(Map map) {
+        TreeSet valueSet = new TreeSet(map.values());
+        ArrayList valueList = new ArrayList(valueSet);
+        Map<String, Integer> resultTable = new HashMap<String, Integer>();
+        Collection<String> collection = map.keySet();
+
+        for (int i = valueList.size() - 1; i >= 0; i--) {
+            for (String j : collection) {
+                if (resultTable.size() < 10) {
+                    if (parseInt(map.get(j).toString()) == parseInt(valueList.get(i).toString())) {
+                        resultTable.put(j, parseInt(map.get(j).toString()));
+                        System.out.println("Word: " + j + " Count: "
+                                + resultTable.get(j));
+                    }
+                } else {
+                    break;
+                }
+            }
         }
     }
 
