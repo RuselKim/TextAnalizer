@@ -1,6 +1,6 @@
 # TextAnalizer
 An app which analyze text file and show TOP-10 of most using words. It also checks the parentheses in the text.
-Еext language supported by the application - English.
+Text language supported by the application - English.
 Words that need to be excluded from statistics are located in Exeptions.txt
 
 
