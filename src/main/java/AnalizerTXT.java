@@ -11,7 +11,7 @@ public class AnalizerTXT {
     public String cleanText(String text) {
         text = text.toLowerCase().trim();
         ReaderTXT readerTXT = new ReaderTXT();
-        readerTXT.setPATH("d:\\Exeptions.txt");
+        readerTXT.setPATH(String.valueOf(this.getClass().getResource("Exeptions.txt")));
 
         String[] badWords = readerTXT.readFromFile().trim().split("\r\n");
         String[] simbols = {". ", ".\r\n", "\r\n", ", ", "! ", "? ", ";", ":", "'",

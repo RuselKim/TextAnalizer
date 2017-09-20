@@ -29,7 +29,7 @@ public class BracketAnalizer {
         if (bracketString.length() == 0) {
             return ("correctly");
         } else {
-            return ("inorrectly");
+            return ("incorrectly");
         }
     }
 }

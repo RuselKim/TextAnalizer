@@ -22,7 +22,8 @@ public class ReaderTXT {
                 text += System.getProperty("line.separator") + line;
             }
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.out.println("File is not found. Please try again");
+            Main.getPathFromUser();
         } catch (IOException e) {
             e.printStackTrace();
         }
