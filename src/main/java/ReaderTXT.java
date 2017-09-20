@@ -18,11 +18,11 @@ public class ReaderTXT {
         String line = null;
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(Path)));
-            while ((line = bufferedReader.readLine()) != null) {
-                text += System.getProperty("line.separator") + line;
-            }
+            while ((line = bufferedReader.readLine()) != null) {           //read text from file and create a String
+                text += System.getProperty("line.separator") + line;        //i'm using line.separator because i don't know
+            }                                                               //witch OS is using;
         } catch (FileNotFoundException e) {
-            System.out.println("File is not found. Please try again");
+            System.out.println("File is not found. Please try again");    //if there were no file with such path, ask to enter path again.
             Main.getPathFromUser();
         } catch (IOException e) {
             e.printStackTrace();
