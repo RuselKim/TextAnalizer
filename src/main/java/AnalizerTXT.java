@@ -53,7 +53,7 @@ public class AnalizerTXT {
                 if (resultTable.size() < 10) {
                     if (parseInt(map.get(j).toString()) == parseInt(valueList.get(i).toString())) {
                         resultTable.put(j, parseInt(map.get(j).toString()));
-                        System.out.println("Word: " + j + " Count: "
+                        System.out.println("Word: " + j + " Used: "
                                 + resultTable.get(j));
                     }
                 } else {

@@ -6,7 +6,7 @@ public class Main {
         String text;
         String cleanedText;
         AnalizerTXT analizerTXT = new AnalizerTXT();
-
+        BracketAnalizer bracketAnalizer = new BracketAnalizer();
         ReaderTXT readerTXT = new ReaderTXT();
 
         readerTXT.setPATH("d:\\test.txt");
@@ -14,7 +14,7 @@ public class Main {
         text = readerTXT.readFromFile();
         cleanedText = analizerTXT.cleanText(text);
         analizerTXT.analyzeTXT(cleanedText);
-
+        System.out.println("Brackets are placed " +  bracketAnalizer.analizeBracket(text));
 
 
     }
